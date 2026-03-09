@@ -151,7 +151,7 @@
       background: var(--tag-bg);
     }
 
-    .upload-zone input[type="file"] { display: none; }
+    #csv_input { display: none; }
 
     .upload-zone .upload-icon {
       font-size: 2rem;
@@ -409,12 +409,12 @@
       <div class="step-title">Upload your completed CSV</div>
     </div>
     <div class="step-body">
-      <label class="upload-zone" id="upload_zone" for="csv_input">
-        <input type="file" id="csv_input" accept=".csv,text/csv">
+      <input type="file" id="csv_input" accept=".csv,text/csv">
+      <div class="upload-zone" id="upload_zone">
         <div class="upload-icon">&#128196;</div>
         <div class="upload-label"><strong>Choose a CSV file</strong> or drag and drop</div>
         <div class="upload-hint">Max 50 questions per submission</div>
-      </label>
+      </div>
       <div class="uploaded-name" id="uploaded_name"></div>
     </div>
   </div>
@@ -525,6 +525,8 @@
 
   const uploadZone = document.getElementById('upload_zone');
   const csvInput   = document.getElementById('csv_input');
+
+  uploadZone.addEventListener('click', () => csvInput.click());
 
   uploadZone.addEventListener('dragover', e => {
     e.preventDefault();
