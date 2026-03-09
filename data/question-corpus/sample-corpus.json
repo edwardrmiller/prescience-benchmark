@@ -1,0 +1,452 @@
+[
+  {
+    "id": "q001",
+    "question_text": "What is the probability that a novel zoonotic pathogen with pandemic potential emerges from Southeast Asian wet markets within the next 18 months?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Wet markets in Southeast Asia remain a historically consistent spillover point for novel pathogens. Surveillance data from the region is sparse, and post-COVID biosecurity reforms have stalled in several countries. The combination of high animal diversity, crowded conditions, and limited veterinary oversight creates a persistent structural risk that may be underweighted in current policy attention.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q002",
+    "question_text": "Will antimicrobial resistance cause more deaths globally than cancer by 2040, and are current international coordination mechanisms sufficient to prevent this?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "AMR is forecast to be the leading cause of preventable death by mid-century, yet it receives a fraction of the policy and funding attention of oncology. The WHO Global Action Plan has not produced binding commitments from major pharmaceutical producers. This question is critically under-investigated relative to its stakes.",
+    "submitted_by": "participant_B",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q003",
+    "question_text": "How prepared are high-income countries to manage a simultaneous influenza pandemic and a climate-driven heat emergency in the same summer season?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Climate & Environment"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Pandemic preparedness planning typically addresses single-hazard scenarios. As climate change increases the frequency of extreme heat events, the compounding effect on healthcare system capacity — already strained by respiratory illness peaks — deserves targeted investigation that current frameworks do not provide.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q004",
+    "question_text": "Are mRNA vaccine manufacturing supply chains sufficiently geographically diversified to withstand a major geopolitical disruption?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "The speed of COVID mRNA vaccine deployment masked underlying fragilities in precursor chemical sourcing, which remains concentrated in a small number of countries. A Taiwan Strait crisis or similar shock could render current surge capacity plans inoperable.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q005",
+    "question_text": "What is the risk that a major pathogen emerges with both high transmissibility and resistance to all currently approved antiviral classes?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "The pipeline for novel antiviral drug classes is thin. Existing surveillance for resistance emergence is reactive rather than prospective. A pathogen combining influenza-level transmissibility with pan-resistance to antivirals would leave healthcare systems with no pharmacological tools.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q006",
+    "question_text": "Could the erosion of independent judiciaries in multiple EU member states trigger a constitutional crisis that fractures the bloc's common governance framework?",
+    "domain_tags": ["Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Judicial independence has declined measurably in several EU states. The European Court of Justice's enforcement tools are slow and politically constrained. If multiple member states simultaneously challenge ECJ authority, existing mechanisms may be insufficient to hold the legal architecture together.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q007",
+    "question_text": "How might the widespread adoption of AI-generated political content reshape electoral accountability in democracies without mandatory content provenance standards?",
+    "domain_tags": ["Government Policy & Governance", "Technology & AI"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Provenance standards for AI-generated political content are emerging but not yet mandatory in most jurisdictions. The 2024 election cycle demonstrated the speed at which synthetic media can propagate. Without traceability requirements, accountability mechanisms for false political claims break down.",
+    "submitted_by": "participant_C",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q008",
+    "question_text": "What governance frameworks are emerging to manage the concentration of strategic AI infrastructure in fewer than five private companies?",
+    "domain_tags": ["Government Policy & Governance", "Technology & AI"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Compute, frontier model weights, and alignment research are increasingly concentrated. Antitrust frameworks were not designed for infrastructure with dual-use strategic implications. The governance gap here is structural and growing faster than regulatory capacity.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q009",
+    "question_text": "Will declining voter turnout in advanced democracies reach a threshold that delegitimises electoral mandates in the eyes of significant population segments?",
+    "domain_tags": ["Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Turnout has trended downward in most OECD democracies. At what point does a government elected by 30% of eligible voters lack the practical authority to implement major reforms? This threshold question is underexplored in political science and almost entirely absent from policy planning.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q010",
+    "question_text": "How resilient are national digital identity infrastructures to coordinated cyberattack, and what would cascading failure look like for public services?",
+    "domain_tags": ["Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Several nations have centralised digital identity systems with limited fallback to analogue processes. A successful attack could simultaneously disable benefits payments, healthcare access verification, and border control. Resilience standards for these systems are not publicly benchmarked.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q011",
+    "question_text": "What are the escalation risks if two nuclear-armed states both deploy autonomous lethal systems in the same contested maritime zone simultaneously?",
+    "domain_tags": ["Military & Security"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Rules of engagement for autonomous systems operating near adversary vessels are not codified in international law. Speed-of-machine escalation in a congested maritime environment could compress human decision time below meaningful thresholds, making inadvertent escalation structurally more likely.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q012",
+    "question_text": "Could undersea cable infrastructure become the primary target of a gray-zone campaign designed to impose costs below the threshold of formal armed conflict?",
+    "domain_tags": ["Military & Security"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "95% of international data traffic transits undersea cables. Protection of this infrastructure falls in a legal and operational gray zone. Deliberate cable cuts could cause enormous economic damage while remaining deniable and below the threshold for Article 5 invocation.",
+    "submitted_by": "participant_D",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q013",
+    "question_text": "How might non-state actors acquire and deploy electromagnetic pulse weapons capable of disabling critical civilian infrastructure?",
+    "domain_tags": ["Military & Security"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "EMP capability is no longer exclusively state-held. Commercial components are increasingly capable. Critical infrastructure hardening against EMP is expensive and politically unprioritised. The gap between capability proliferation and defensive investment is widening.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q014",
+    "question_text": "What is the strategic risk of emerging economies acquiring advanced drone swarm technology from multiple competing great powers simultaneously?",
+    "domain_tags": ["Military & Security"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Several mid-tier powers are receiving drone technology from both US-aligned and Chinese suppliers, creating interoperability ambiguity in potential conflict scenarios and complicating the intelligence picture for all parties.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q015",
+    "question_text": "What vulnerabilities in military logistics AI systems could be exploited during a high-tempo conflict to create catastrophic supply failures?",
+    "domain_tags": ["Military & Security", "Technology & AI"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "NATO and partner militaries are integrating AI into logistics planning. The adversarial robustness of these systems has not been publicly tested. Deliberate poisoning of training data or model inputs during a pre-conflict period could render logistics dysfunctional precisely when reliability is most critical.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q016",
+    "question_text": "What is the risk that a major central bank's digital currency rollout triggers a systemic run on commercial bank deposits within the first 12 months?",
+    "domain_tags": ["Economics & Finance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "CBDC design choices around interest-bearing accounts and withdrawal limits will determine whether they compete directly with commercial deposits. Most central bank stress tests assume gradual adoption curves that may not reflect public behaviour during a confidence shock.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q017",
+    "question_text": "Could private credit markets, which have grown to over $2 trillion globally, transmit a systemic shock in ways that current macro-prudential frameworks cannot detect?",
+    "domain_tags": ["Economics & Finance"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Private credit sits largely outside bank regulatory perimeters. Valuation opacity and the illiquidity premium mean stress may accumulate invisibly until a trigger event forces repricing. The interconnection with insurance and pension funds creates transmission channels that are not well-modelled.",
+    "submitted_by": "participant_A",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q018",
+    "question_text": "How will the fiscal position of major economies change if AI-driven automation eliminates 20–30% of current tax-generating employment within a decade?",
+    "domain_tags": ["Economics & Finance", "Technology & AI"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Labour income taxes and payroll taxes account for roughly half of government revenues in high-income countries. Rapid labour market displacement without corresponding growth in taxable AI-generated value could create sovereign fiscal stress within a single budget cycle.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q019",
+    "question_text": "What happens to global commodity markets if three or more major grain-producing regions experience simultaneous climate-driven crop failures?",
+    "domain_tags": ["Economics & Finance", "Climate & Environment"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Grain reserves are at multi-decade lows in several key producing countries. Simultaneous shocks to US corn, Indian wheat, and Southern African maize production have never been stress-tested in combination. The resulting price cascade would fall hardest on import-dependent low-income nations.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q020",
+    "question_text": "Are sovereign wealth funds sufficiently stress-tested for a prolonged period of high inflation combined with negative real returns on bonds?",
+    "domain_tags": ["Economics & Finance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Several sovereign wealth funds have portfolio assumptions calibrated on the 2000–2020 low-inflation, high-bond-return environment. A prolonged stagflationary period would test liability-matching assumptions that underpin pension guarantees for millions of public-sector workers.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q021",
+    "question_text": "What are the second-order effects on global financial stability if a frontier AI system successfully executes a novel market manipulation strategy that existing surveillance cannot detect?",
+    "domain_tags": ["Technology & AI", "Economics & Finance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Market surveillance systems are pattern-matched on known manipulation strategies. A sufficiently novel AI-generated manipulation — especially one distributed across many accounts or instruments — may not trigger alerts until significant damage is done. Regulatory capacity to detect and respond is not keeping pace with capability.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q022",
+    "question_text": "How might the proliferation of locally-run open-source language models undermine national content regulation frameworks?",
+    "domain_tags": ["Technology & AI", "Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Regulation of AI-generated content assumes network-accessible model APIs. Locally-executable models remove this chokepoint entirely. Countries that have relied on platform-level content moderation will face a structural enforcement gap that cannot be closed by existing mechanisms.",
+    "submitted_by": "participant_B",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q023",
+    "question_text": "What is the probability that an AI system autonomously discovers and exploits a critical vulnerability in global financial messaging infrastructure such as SWIFT?",
+    "domain_tags": ["Technology & AI", "Military & Security"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "AI-assisted vulnerability discovery is already accelerating. SWIFT and equivalent infrastructure have been targeted before by state actors. The question is whether autonomous AI systems — potentially without human authorisation — could identify and act on vulnerabilities faster than defensive patching cycles.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q024",
+    "question_text": "How will widespread deployment of AI tutoring systems affect the development of critical thinking in the first generation of students who never attend school without them?",
+    "domain_tags": ["Technology & AI"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Cognitive outsourcing is a genuine developmental risk. If AI tutors resolve productive struggle before students encounter it, skills associated with effortful reasoning may not develop. This is a decades-long societal experiment with no control group and no current measurement framework.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q025",
+    "question_text": "Could competitive pressure in frontier AI development cause a major lab to skip critical safety evaluations in order to achieve a first-mover deployment advantage?",
+    "domain_tags": ["Technology & AI"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Safety evaluation timelines are currently self-imposed. Competitive dynamics between US and Chinese frontier labs — and between US labs themselves — create structural incentives to shorten evaluation windows. There is no mandatory pre-deployment safety gate in any jurisdiction.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q026",
+    "question_text": "Will permafrost thaw release sufficient methane in the next decade to significantly accelerate warming beyond IPCC baseline scenarios?",
+    "domain_tags": ["Climate & Environment"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Permafrost carbon feedback is one of the largest identified tipping-point risks in the climate system. Recent observations suggest thaw rates are tracking above model projections. A step-change in methane release would compress the timeline for net-zero commitments to have meaningful effect.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q027",
+    "question_text": "What governance mechanisms exist to prevent unilateral stratospheric aerosol injection by a single state or non-state actor?",
+    "domain_tags": ["Climate & Environment", "Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Solar geoengineering via stratospheric aerosol injection is technically feasible at low cost for a determined actor. The effects — both intended and unintended — are global and not reversible on short timescales. No binding international governance framework currently exists to prevent or regulate unilateral deployment.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q028",
+    "question_text": "How will the depletion of accessible groundwater aquifers affect political stability in water-stressed regions within the next 15 years?",
+    "domain_tags": ["Climate & Environment", "Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Several major aquifers — including the Ogallala, the Arabian Aquifer System, and the Indus Basin system — are being drawn down faster than recharge rates. Agricultural systems dependent on these aquifers face transition pressures that will create political stress well before complete depletion.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q029",
+    "question_text": "Could the collapse of major coral reef ecosystems trigger cascading failures in marine food chains that undermine food security for coastal populations within a decade?",
+    "domain_tags": ["Climate & Environment", "Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Coral reefs support an estimated 25% of all marine species and provide food security for approximately one billion people. Bleaching events are now annual in many reef systems. The downstream nutritional and economic impacts of reef collapse are underrepresented in food security policy discussions.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q030",
+    "question_text": "What is the risk that major insurers exit climate-exposed coastal property markets in sufficient numbers to trigger a real estate market correction affecting pension funds?",
+    "domain_tags": ["Climate & Environment", "Economics & Finance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Several US coastal markets have already seen major insurer withdrawal. Uninsured properties cannot be mortgaged, which removes buyers and triggers price corrections. If this dynamic spreads to multiple major markets simultaneously, the pension fund exposure via mortgage-backed securities could be substantial.",
+    "submitted_by": "participant_B",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q031",
+    "question_text": "What happens to global disease burden if a dengue fever strain emerges that is significantly more lethal than current circulating strains and expands into temperate climates?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Climate & Environment"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Dengue range is expanding with warming temperatures. The disease already infects an estimated 400 million people annually. A more lethal variant expanding into previously unaffected temperate populations — which lack immunity — would encounter health systems with no established dengue protocols.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q032",
+    "question_text": "Are mental health services in high-income countries capable of handling the projected demand increase from AI-driven economic displacement over the next decade?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Economics & Finance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Mental health services are already undersupplied relative to demand in most OECD countries. Economic disruption is a well-established driver of mental illness prevalence. If AI-driven job displacement occurs at scale, the consequent demand surge could overwhelm systems that are currently operating at capacity.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q033",
+    "question_text": "How might a successful cyberattack on a major hospital network's AI diagnostic systems affect patient outcomes at scale before the attack is detected?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Technology & AI"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "AI diagnostic tools are increasingly embedded in clinical workflows without robust adversarial validation. Subtle model manipulation — rather than ransomware-style disruption — could cause systematic misdiagnosis across a network of hospitals over weeks before pattern recognition triggers an alert.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q034",
+    "question_text": "Could de facto one-party dominance become entrenched in several current democracies through legally compliant but norm-violating institutional changes?",
+    "domain_tags": ["Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Democratic backsliding increasingly operates through legal means: changing electoral rules, packing courts, defunding opposition media, and gerrymandering. These changes individually survive judicial review but cumulatively foreclose competitive elections. The process is slow enough to evade traditional crisis response mechanisms.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q035",
+    "question_text": "What is the geopolitical risk of China achieving self-sufficiency in advanced semiconductor fabrication within five years?",
+    "domain_tags": ["Economics & Finance", "Military & Security", "Technology & AI"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Current US export control strategy assumes that China cannot achieve leading-edge semiconductor self-sufficiency within a strategically relevant timeframe. If this assumption fails, the export control regime loses its primary lever, and the strategic calculus around Taiwan changes materially.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q036",
+    "question_text": "How would the rapid emergence of a significant third party in a major Anglophone democracy alter the strategic calculus of existing parties in ways that produce governance instability?",
+    "domain_tags": ["Government Policy & Governance"],
+    "impact_self_assessment": 2,
+    "supporting_rationale": "Third-party insurgencies in first-past-the-post systems historically produce hung parliaments or coalition dynamics that existing party infrastructure is not designed to manage. The systemic effects on policy continuity and executive authority deserve more prospective analysis.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q037",
+    "question_text": "What is the risk of a major nuclear power plant cyberattack resulting in a safety system override and uncontrolled release event?",
+    "domain_tags": ["Military & Security", "Government Policy & Governance"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "Nuclear plant safety systems have historically been air-gapped, but digitisation and remote monitoring have introduced connectivity. Stuxnet demonstrated that air-gap assumptions are not always reliable. A deliberate cyberattack targeting safety override systems would have consequences comparable to a major accident.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q038",
+    "question_text": "Could the emergence of AI systems capable of autonomous scientific research accelerate bioweapon development to a point where treaty verification becomes impossible?",
+    "domain_tags": ["Technology & AI", "Military & Security", "Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 5,
+    "supporting_rationale": "The Biological Weapons Convention lacks a verification protocol. AI-assisted protein design and synthesis planning are advancing rapidly. If autonomous AI can independently identify and optimise pathogen enhancement pathways, the barrier to bioweapon development drops sharply while the signature for detection becomes more ambiguous.",
+    "submitted_by": "participant_B",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q039",
+    "question_text": "How will rising temperatures affect labour productivity in tropical and subtropical regions, and what are the macroeconomic implications for global supply chains?",
+    "domain_tags": ["Climate & Environment", "Economics & Finance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Wet-bulb temperature thresholds limit outdoor labour capacity. Many manufacturing and agricultural regions in South and Southeast Asia regularly approach these limits. As temperatures rise, effective working hours decrease, affecting production capacity in ways that are not currently priced into long-term supply chain planning.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q040",
+    "question_text": "What is the risk that a poorly aligned AI system operating within a major financial institution makes a series of decisions that cumulatively destabilise a key market segment?",
+    "domain_tags": ["Technology & AI", "Economics & Finance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "AI systems in finance are already making consequential decisions at speed and scale. A misaligned objective function that is subtly wrong — rather than catastrophically wrong — could produce a pattern of decisions that individually pass risk checks but collectively move a market segment toward instability over weeks or months.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q041",
+    "question_text": "Could widespread AI-assisted legal work create a two-tier access to justice system that structurally disadvantages those who cannot afford AI-augmented representation?",
+    "domain_tags": ["Technology & AI", "Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "AI legal tools are being adopted fastest by large firms. Public defenders and legal aid organisations lack the budget and infrastructure to access equivalent tools. The gap in research, argument preparation, and document review capacity between well-resourced and under-resourced legal teams is growing.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q042",
+    "question_text": "What governance mechanisms are in place to prevent a cascade failure if three or more major cloud providers experience simultaneous outages due to a shared software dependency?",
+    "domain_tags": ["Technology & AI", "Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Cloud infrastructure is increasingly interdependent through shared open-source dependencies, common hardware vendors, and interconnected peering arrangements. A vulnerability in a widely-used library could propagate across providers simultaneously. Critical services across banking, healthcare, and government would be affected in ways that national resilience plans have not modelled.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q043",
+    "question_text": "How will militaries adapt command and control doctrine if real-time deepfakes make video authentication of orders from senior commanders unreliable?",
+    "domain_tags": ["Military & Security", "Technology & AI"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Military command structures rely in part on voice and video verification. Advances in real-time deepfake generation mean that audio-visual orders can no longer be assumed authentic without additional authentication layers. Doctrine has not caught up with this capability shift.",
+    "submitted_by": "participant_C",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q044",
+    "question_text": "What is the risk that sovereign debt defaults cluster across emerging market economies simultaneously, triggered by a shared external shock?",
+    "domain_tags": ["Economics & Finance", "Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Many emerging market sovereigns issued debt in the low-rate environment of 2015–2022. A sustained high-rate environment combined with a commodity price shock or US dollar strengthening could trigger simultaneous refinancing crises across a set of structurally similar economies, overwhelming IMF and bilateral creditor capacity.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q045",
+    "question_text": "How might the long-term cognitive effects of childhood COVID infection affect educational attainment and workforce productivity over the next 20 years?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Economics & Finance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Long COVID neurological sequelae in children are documented but not well-quantified at population level. If even a small percentage of the global birth cohorts exposed to COVID during 2020–2023 experience meaningful cognitive impacts, the cumulative effect on educational outcomes and labour productivity over two decades is substantial.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q046",
+    "question_text": "Will the rapid expansion of lithium mining for battery technology create environmental and political instabilities in producing countries that disrupt the clean energy transition?",
+    "domain_tags": ["Climate & Environment", "Economics & Finance", "Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Lithium production is concentrated in politically fragile regions. Water-intensive extraction is straining arid ecosystems in South America. Political instability in key producing countries — or a backlash-driven nationalisation wave — could create supply shocks that slow battery technology deployment globally.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q047",
+    "question_text": "Could a major social media platform's collapse or forced fragmentation trigger a significant degradation of global real-time public health communication during an emergency?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Public health authorities have become dependent on social media platforms for rapid mass communication. Regulatory forced break-up or rapid platform collapse without a successor infrastructure would leave health agencies without an equivalent channel precisely when coordinated messaging matters most.",
+    "submitted_by": "participant_C",
+    "participant_type": "AI"
+  },
+  {
+    "id": "q048",
+    "question_text": "What is the risk that current international arms control frameworks become irrelevant as hypersonic weapons shrink the detection-to-impact window below treaty verification thresholds?",
+    "domain_tags": ["Military & Security", "Government Policy & Governance"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Existing nuclear arms control treaties assume warning times that allow for diplomatic de-escalation. Hypersonic glide vehicles reduce that window materially. Treaty verification regimes built around fixed-site inspections are not designed to address this temporal asymmetry.",
+    "submitted_by": "participant_D",
+    "participant_type": "Human"
+  },
+  {
+    "id": "q049",
+    "question_text": "How might ocean acidification affect the global marine fisheries that currently supply protein to over three billion people?",
+    "domain_tags": ["Climate & Environment", "Healthcare & Pandemic Preparedness"],
+    "impact_self_assessment": 4,
+    "supporting_rationale": "Ocean acidification is proceeding faster than IPCC mid-range scenarios projected. Shell-forming organisms at the base of many marine food chains are at risk. The nutritional and economic consequences of declining marine fishery yields are underrepresented in food security and health system planning.",
+    "submitted_by": "participant_A",
+    "participant_type": "Human-AI hybrid"
+  },
+  {
+    "id": "q050",
+    "question_text": "What are the systemic risks if a major economy attempts to reshore critical pharmaceutical manufacturing within a single electoral cycle, creating a transition period of supply fragility?",
+    "domain_tags": ["Healthcare & Pandemic Preparedness", "Economics & Finance", "Government Policy & Governance"],
+    "impact_self_assessment": 3,
+    "supporting_rationale": "Political pressure to reshore pharmaceutical supply chains is high post-COVID. But transition periods — during which offshore capacity is retired and domestic capacity is not yet at scale — create temporary supply gaps for generic drugs and active pharmaceutical ingredients. The political incentive to announce reshoring may outpace the operational capacity to execute it safely.",
+    "submitted_by": "participant_B",
+    "participant_type": "Human"
+  }
+]
