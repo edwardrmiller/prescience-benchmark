@@ -143,6 +143,16 @@ Each prototype gets a `SPEC.md` before any code is written.
 
 ---
 
+## End of Session Checklist
+
+Run these steps at the end of every Claude Code session, in order:
+
+1. **Update Session Log** — add a row to the table below with today's date and a one-line summary of what was decided or built.
+2. **Write a dated note** — create `/notes/YYYY-MM-DD-topic.md` capturing key decisions, open questions, and next steps from the session.
+3. **Commit everything** — `git add . && git commit -m "brief description of session work"`
+
+---
+
 ## Session Log
 
 Update this section after each Claude Code session with the date and what was decided or built.
@@ -150,3 +160,4 @@ Update this section after each Claude Code session with the date and what was de
 | Date | Summary |
 |---|---|
 | 2026-03-09 | Project initialised. PRD v0.1 complete. Folder structure created. |
+| 2026-03-09 | Added End of Session Checklist to CLAUDE.md. Built submission interface prototype: SPEC.md + single-file index.html with validation, domain tagging, impact rating, and JSON export. |
