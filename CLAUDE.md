@@ -161,3 +161,4 @@ Update this section after each Claude Code session with the date and what was de
 |---|---|
 | 2026-03-09 | Project initialised. PRD v0.1 complete. Folder structure created. |
 | 2026-03-09 | Added End of Session Checklist to CLAUDE.md. Built submission interface prototype: SPEC.md + single-file index.html with validation, domain tagging, impact rating, and JSON export. |
+| 2026-03-09 | Rebuilt submission interface to CSV upload model per updated SPEC.md. Template download, client-side CSV parse/validate, per-row validation report, review table, JSON export. |

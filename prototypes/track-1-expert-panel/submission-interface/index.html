@@ -17,13 +17,17 @@
       --accent: #4a6fa5;
       --accent-hover: #3a5f95;
       --danger: #c0392b;
+      --danger-bg: #fdf2f1;
+      --danger-border: #e8b4b0;
       --success: #27ae60;
+      --success-bg: #f1faf5;
+      --success-border: #a8dab5;
       --warning-bg: #fef9e7;
       --warning-border: #f0c040;
       --tag-bg: #e8eef5;
       --tag-text: #3a5f95;
       --font: system-ui, -apple-system, sans-serif;
-      --mono: ui-monospace, monospace;
+      --mono: ui-monospace, 'Cascadia Code', monospace;
     }
 
     body {
@@ -40,213 +44,72 @@
       padding: 1.25rem 2rem;
       display: flex;
       align-items: baseline;
-      gap: 1.5rem;
-    }
-
-    header h1 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    header .subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .counter-bar {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .counter-pill {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-weight: 600;
-      padding: 0.2rem 0.65rem;
-      border-radius: 999px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .counter-pill.limit { background: #fde8e6; color: var(--danger); }
-
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      display: grid;
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
-    }
-
-    .card h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .field { margin-bottom: 1.25rem; }
-    .field:last-child { margin-bottom: 0; }
-
-    label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-    }
-
-    label .req { color: var(--danger); margin-left: 2px; }
-    label .hint { font-weight: 400; color: var(--text-muted); margin-left: 0.4rem; }
-
-    input[type="text"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 0.55rem 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      font-family: var(--font);
-      font-size: 0.9rem;
-      color: var(--text);
-      background: var(--surface);
-      transition: border-color 0.15s;
-      appearance: none;
-    }
-
-    input[type="text"]:focus,
-    textarea:focus,
-    select:focus {
-      outline: none;
-      border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px rgba(74,111,165,0.12);
-    }
-
-    input.error, textarea.error, select.error {
-      border-color: var(--danger);
-    }
-
-    textarea { resize: vertical; min-height: 90px; }
-
-    .char-count {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-align: right;
-      margin-top: 0.25rem;
-    }
-    .char-count.over { color: var(--danger); font-weight: 500; }
-
-    .domain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.5rem;
-    }
-
-    .domain-option {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.65rem;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: background 0.12s, border-color 0.12s;
-      user-select: none;
-    }
-
-    .domain-option:hover { background: var(--tag-bg); }
-    .domain-option.selected {
-      background: var(--tag-bg);
-      border-color: var(--border-focus);
-      color: var(--tag-text);
-      font-weight: 500;
-    }
-
-    .domain-option input[type="checkbox"] { accent-color: var(--accent); }
-
-    .rating-row {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .rating-btn {
-      flex: 1;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      background: var(--surface);
-      cursor: pointer;
-      padding: 0.5rem 0.25rem;
-      text-align: center;
-      transition: background 0.12s, border-color 0.12s;
-      font-family: var(--font);
-    }
-
-    .rating-btn .num {
-      display: block;
-      font-size: 1.1rem;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    .rating-btn .lbl {
-      display: block;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
-    }
-
-    .rating-btn:hover { background: var(--tag-bg); border-color: var(--border-focus); }
-
-    .rating-btn.selected {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-    .rating-btn.selected .lbl { color: rgba(255,255,255,0.8); }
-
-    .participant-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
 
-    .error-msg {
-      font-size: 0.78rem;
-      color: var(--danger);
-      margin-top: 0.25rem;
-      display: none;
-    }
-    .error-msg.visible { display: block; }
+    header h1 { font-size: 1.1rem; font-weight: 600; }
+    header .subtitle { font-size: 0.85rem; color: var(--text-muted); }
 
-    .actions {
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    /* Step cards */
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .step-header {
       display: flex;
+      align-items: center;
       gap: 0.75rem;
-      justify-content: flex-end;
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
     }
 
-    button {
+    .step-num {
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .step-body { padding: 1.25rem 1.5rem; }
+
+    /* Buttons */
+    button, .btn {
       font-family: var(--font);
       font-size: 0.88rem;
       font-weight: 500;
-      padding: 0.55rem 1.25rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 5px;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
     }
 
     .btn-primary {
@@ -254,11 +117,6 @@
       color: #fff;
     }
     .btn-primary:hover { background: var(--accent-hover); }
-    .btn-primary:disabled {
-      background: var(--border);
-      color: var(--text-muted);
-      cursor: not-allowed;
-    }
 
     .btn-secondary {
       background: var(--surface);
@@ -267,84 +125,219 @@
     }
     .btn-secondary:hover { background: var(--bg); }
 
-    .btn-danger {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--danger);
-      font-size: 0.8rem;
-      padding: 0.3rem 0.65rem;
-    }
-    .btn-danger:hover { background: #fde8e6; border-color: var(--danger); }
-
     .btn-export {
       background: var(--success);
       color: #fff;
     }
     .btn-export:hover { background: #219150; }
-    .btn-export:disabled {
-      background: var(--border);
-      color: var(--text-muted);
+
+    button:disabled {
+      opacity: 0.45;
       cursor: not-allowed;
+      pointer-events: none;
     }
 
-    /* Submission list */
-    .list-empty {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      padding: 2rem 0;
-    }
-
-    .q-item {
-      border: 1px solid var(--border);
+    /* File upload zone */
+    .upload-zone {
+      border: 2px dashed var(--border);
       border-radius: 6px;
-      padding: 1rem 1.1rem;
-      margin-bottom: 0.75rem;
-      display: grid;
-      gap: 0.35rem;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--accent);
+      background: var(--tag-bg);
     }
 
-    .q-item:last-child { margin-bottom: 0; }
+    .upload-zone input[type="file"] { display: none; }
 
-    .q-item-header {
+    .upload-zone .upload-icon {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .upload-zone .upload-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .upload-zone .upload-label strong {
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    .upload-zone .upload-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .uploaded-name {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .uploaded-name.visible { display: block; }
+
+    /* Validation report */
+    .report-summary {
       display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .q-id {
+    .report-pill {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .pill-accepted { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+    .pill-rejected { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr.row-rejected { background: var(--danger-bg); }
+    tr.row-accepted:hover { background: var(--bg); }
+
+    .row-num {
       font-family: var(--mono);
       font-size: 0.75rem;
       color: var(--text-muted);
       white-space: nowrap;
-      margin-top: 0.15rem;
     }
 
-    .q-text {
-      font-size: 0.9rem;
-      font-weight: 500;
-      flex: 1;
+    .status-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      white-space: nowrap;
     }
+    .badge-ok { background: var(--success-bg); color: var(--success); }
+    .badge-err { background: var(--danger-bg); color: var(--danger); }
 
-    .q-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.25rem;
+    .reject-reason {
+      color: var(--danger);
+      font-size: 0.78rem;
     }
 
     .tag {
+      display: inline-block;
       background: var(--tag-bg);
       color: var(--tag-text);
-      font-size: 0.72rem;
-      padding: 0.15rem 0.5rem;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
       border-radius: 999px;
       font-weight: 500;
+      white-space: nowrap;
+      margin: 1px;
     }
 
-    .tag.type { background: #eef3e8; color: #3a6e30; }
-    .tag.rating { background: #f3eeee; color: #7a3a3a; }
+    .q-text-cell {
+      max-width: 320px;
+    }
 
+    .q-text-trunc {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Actions row */
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .template-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .template-desc code {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.05rem 0.3rem;
+    }
+
+    .schema-list {
+      margin: 0.75rem 0;
+      padding-left: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .schema-list li { list-style: disc; }
+    .schema-list code {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.05rem 0.3rem;
+      color: var(--text);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      padding: 1.5rem 0;
+    }
+
+    .hidden { display: none !important; }
+
+    /* Flash */
     .flash {
       position: fixed;
       bottom: 1.5rem;
@@ -364,10 +357,9 @@
     .flash.show { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 600px) {
-      header { flex-wrap: wrap; gap: 0.5rem; }
-      .counter-bar { margin-left: 0; }
-      .participant-row { grid-template-columns: 1fr; }
-      .rating-btn .lbl { display: none; }
+      main { padding: 1rem; }
+      .step-body { padding: 1rem; }
+      .report-summary { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -376,352 +368,584 @@
 <header>
   <h1>Prescience Benchmark</h1>
   <span class="subtitle">Question Submission</span>
-  <div class="counter-bar">
-    <span>Questions submitted:</span>
-    <span class="counter-pill" id="counter">0 / 50</span>
-  </div>
 </header>
 
 <main>
-  <!-- Submission form -->
-  <div class="card">
-    <h2>Submit a question</h2>
 
-    <div class="field">
-      <label for="question_text">Question <span class="req">*</span> <span class="hint">20–300 characters</span></label>
-      <textarea id="question_text" rows="3" placeholder="Frame as a specific, decision-relevant question about a future state of the world…"></textarea>
-      <div class="char-count" id="qtext_count">0 / 300</div>
-      <div class="error-msg" id="qtext_err">Question must be between 20 and 300 characters.</div>
+  <!-- Step 1: Download template -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title">Download the CSV template</div>
     </div>
-
-    <div class="field">
-      <label>Domain tags <span class="req">*</span> <span class="hint">Select 1–3</span></label>
-      <div class="domain-grid" id="domain_grid">
-        <label class="domain-option">
-          <input type="checkbox" value="Healthcare &amp; Pandemic Preparedness"> Healthcare &amp; Pandemic Preparedness
-        </label>
-        <label class="domain-option">
-          <input type="checkbox" value="Government Policy &amp; Governance"> Government Policy &amp; Governance
-        </label>
-        <label class="domain-option">
-          <input type="checkbox" value="Military &amp; Security"> Military &amp; Security
-        </label>
-        <label class="domain-option">
-          <input type="checkbox" value="Economics &amp; Finance"> Economics &amp; Finance
-        </label>
-        <label class="domain-option">
-          <input type="checkbox" value="Technology &amp; AI"> Technology &amp; AI
-        </label>
-        <label class="domain-option">
-          <input type="checkbox" value="Climate &amp; Environment"> Climate &amp; Environment
-        </label>
+    <div class="step-body">
+      <p class="template-desc">
+        Prepare your questions offline using the template below. Each row is one question.
+        Domain tags must be pipe-separated (e.g. <code>Economics &amp; Finance | Technology &amp; AI</code>).
+        Fields containing commas must be enclosed in double quotes.
+      </p>
+      <p class="section-label">Required columns</p>
+      <ul class="schema-list">
+        <li><code>question_text</code> — 20–300 characters</li>
+        <li><code>domain_tags</code> — 1–3 domains, pipe-separated</li>
+        <li><code>submitted_by</code> — your participant identifier</li>
+        <li><code>participant_type</code> — one of: <code>Human</code>, <code>AI</code>, <code>Human-AI hybrid</code></li>
+      </ul>
+      <p class="section-label" style="margin-top:0.75rem">Optional columns</p>
+      <ul class="schema-list">
+        <li><code>impact_self_assessment</code> — integer 1–5</li>
+        <li><code>supporting_rationale</code> — max 200 words</li>
+      </ul>
+      <div class="actions" style="margin-top:1.25rem">
+        <button class="btn-secondary" id="download_template_btn">&#8595; Download CSV template</button>
       </div>
-      <div class="error-msg" id="domain_err">Select between 1 and 3 domains.</div>
-    </div>
-
-    <div class="field">
-      <label>Impact self-assessment <span class="hint">Optional — how important do you think this question is?</span></label>
-      <div class="rating-row" id="rating_row">
-        <button type="button" class="rating-btn" data-val="1">
-          <span class="num">1</span><span class="lbl">Negligible</span>
-        </button>
-        <button type="button" class="rating-btn" data-val="2">
-          <span class="num">2</span><span class="lbl">Low</span>
-        </button>
-        <button type="button" class="rating-btn" data-val="3">
-          <span class="num">3</span><span class="lbl">Moderate</span>
-        </button>
-        <button type="button" class="rating-btn" data-val="4">
-          <span class="num">4</span><span class="lbl">High</span>
-        </button>
-        <button type="button" class="rating-btn" data-val="5">
-          <span class="num">5</span><span class="lbl">Critical</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="rationale">Supporting rationale <span class="hint">Optional — max 200 words</span></label>
-      <textarea id="rationale" rows="3" placeholder="Why does this question deserve serious investigation? What makes it under-recognised?"></textarea>
-      <div class="char-count" id="rationale_count">0 words / 200</div>
-      <div class="error-msg" id="rationale_err">Supporting rationale must be 200 words or fewer.</div>
-    </div>
-
-    <div class="participant-row">
-      <div class="field">
-        <label for="submitted_by">Your identifier <span class="req">*</span></label>
-        <input type="text" id="submitted_by" placeholder="e.g. participant_A">
-        <div class="error-msg" id="submitter_err">Please enter your participant identifier.</div>
-      </div>
-
-      <div class="field">
-        <label for="participant_type">Participant type <span class="req">*</span></label>
-        <select id="participant_type">
-          <option value="">— select —</option>
-          <option value="Human">Human</option>
-          <option value="AI">AI</option>
-          <option value="Human-AI hybrid">Human-AI hybrid</option>
-        </select>
-        <div class="error-msg" id="type_err">Please select a participant type.</div>
-      </div>
-    </div>
-
-    <div class="actions">
-      <button type="button" class="btn-secondary" id="clear_btn">Clear form</button>
-      <button type="button" class="btn-primary" id="submit_btn">Add question</button>
     </div>
   </div>
 
-  <!-- Submitted questions list -->
-  <div class="card">
-    <h2 id="list_heading">Submitted questions <span style="font-weight:400;color:var(--text-muted)" id="list_count"></span></h2>
-    <div id="question_list">
-      <div class="list-empty">No questions submitted yet.</div>
+  <!-- Step 2: Upload -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-title">Upload your completed CSV</div>
     </div>
-    <div class="actions" style="margin-top:1rem">
-      <button type="button" class="btn-export" id="export_btn" disabled>Export JSON</button>
+    <div class="step-body">
+      <label class="upload-zone" id="upload_zone" for="csv_input">
+        <input type="file" id="csv_input" accept=".csv,text/csv">
+        <div class="upload-icon">&#128196;</div>
+        <div class="upload-label"><strong>Choose a CSV file</strong> or drag and drop</div>
+        <div class="upload-hint">Max 50 questions per submission</div>
+      </label>
+      <div class="uploaded-name" id="uploaded_name"></div>
     </div>
   </div>
+
+  <!-- Step 3: Validation report -->
+  <div class="step hidden" id="report_section">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-title">Validation report</div>
+    </div>
+    <div class="step-body">
+      <div class="report-summary" id="report_summary"></div>
+      <div class="table-wrap">
+        <table id="report_table">
+          <thead>
+            <tr>
+              <th>Row</th>
+              <th>Status</th>
+              <th>Question text (truncated)</th>
+              <th>Domain tags</th>
+              <th>Reason / notes</th>
+            </tr>
+          </thead>
+          <tbody id="report_tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Review & export -->
+  <div class="step hidden" id="export_section">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-title">Review accepted questions &amp; export</div>
+    </div>
+    <div class="step-body">
+      <div class="table-wrap">
+        <table id="review_table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Question</th>
+              <th>Domain tags</th>
+              <th>Impact</th>
+              <th>Submitted by</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="review_tbody"></tbody>
+        </table>
+      </div>
+      <div class="actions" style="margin-top:1.25rem">
+        <button class="btn-export" id="export_btn">&#8595; Export JSON</button>
+        <button class="btn-secondary" id="reset_btn">Upload a different file</button>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <div class="flash" id="flash"></div>
 
 <script>
-  const MAX_QUESTIONS = 50;
-  const MAX_RATIONALE_WORDS = 200;
+  // ─── Constants ───────────────────────────────────────────────────────────────
 
-  const state = {
-    questions: [],
-    nextId: 1,
-    selectedRating: null,
-  };
+  const VALID_DOMAINS = [
+    'Healthcare & Pandemic Preparedness',
+    'Government Policy & Governance',
+    'Military & Security',
+    'Economics & Finance',
+    'Technology & AI',
+    'Climate & Environment',
+  ];
 
-  // --- Elements ---
-  const qtextEl    = document.getElementById('question_text');
-  const qtextCount = document.getElementById('qtext_count');
-  const qtextErr   = document.getElementById('qtext_err');
-  const rationaleEl    = document.getElementById('rationale');
-  const rationaleCount = document.getElementById('rationale_count');
-  const rationaleErr   = document.getElementById('rationale_err');
-  const submitterEl  = document.getElementById('submitted_by');
-  const submitterErr = document.getElementById('submitter_err');
-  const typeEl    = document.getElementById('participant_type');
-  const typeErr   = document.getElementById('type_err');
-  const domainErr = document.getElementById('domain_err');
-  const counterEl = document.getElementById('counter');
-  const listEl    = document.getElementById('question_list');
-  const listCount = document.getElementById('list_count');
-  const exportBtn = document.getElementById('export_btn');
-  const submitBtn = document.getElementById('submit_btn');
-  const flashEl   = document.getElementById('flash');
+  const VALID_PARTICIPANT_TYPES = ['Human', 'AI', 'Human-AI hybrid'];
 
-  // --- Live char/word counts ---
-  qtextEl.addEventListener('input', () => {
-    const n = qtextEl.value.length;
-    qtextCount.textContent = `${n} / 300`;
-    qtextCount.classList.toggle('over', n > 300);
+  const CSV_HEADERS = [
+    'question_text',
+    'domain_tags',
+    'impact_self_assessment',
+    'supporting_rationale',
+    'submitted_by',
+    'participant_type',
+  ];
+
+  const TEMPLATE_EXAMPLE_ROW = [
+    'What is the risk that antimicrobial resistance causes more deaths globally than cancer by 2040?',
+    'Healthcare & Pandemic Preparedness | Economics & Finance',
+    '4',
+    'AMR is forecast to be the leading cause of preventable death by mid-century yet receives a fraction of the policy attention.',
+    'participant_A',
+    'Human',
+  ];
+
+  // ─── Template download ────────────────────────────────────────────────────────
+
+  document.getElementById('download_template_btn').addEventListener('click', () => {
+    const rows = [
+      CSV_HEADERS,
+      TEMPLATE_EXAMPLE_ROW,
+    ];
+    const csv = rows.map(r => r.map(csvQuote).join(',')).join('\r\n');
+    downloadFile(csv, 'prescience-submission-template.csv', 'text/csv');
+    showFlash('Template downloaded.');
   });
 
-  rationaleEl.addEventListener('input', () => {
-    const words = wordCount(rationaleEl.value);
-    rationaleCount.textContent = `${words} words / 200`;
-    rationaleCount.classList.toggle('over', words > MAX_RATIONALE_WORDS);
+  // ─── Upload zone ─────────────────────────────────────────────────────────────
+
+  const uploadZone = document.getElementById('upload_zone');
+  const csvInput   = document.getElementById('csv_input');
+
+  uploadZone.addEventListener('dragover', e => {
+    e.preventDefault();
+    uploadZone.classList.add('drag-over');
+  });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) processFile(file);
   });
 
-  // --- Domain checkbox styling ---
-  document.getElementById('domain_grid').addEventListener('change', (e) => {
-    if (e.target.type !== 'checkbox') return;
-    const checked = checkedDomains();
-    document.querySelectorAll('.domain-option').forEach(opt => {
-      const cb = opt.querySelector('input');
-      if (cb.checked && checked.length > 3) { cb.checked = false; return; }
-      opt.classList.toggle('selected', cb.checked);
-    });
+  csvInput.addEventListener('change', () => {
+    if (csvInput.files[0]) processFile(csvInput.files[0]);
   });
 
-  // --- Rating buttons ---
-  document.getElementById('rating_row').addEventListener('click', (e) => {
-    const btn = e.target.closest('.rating-btn');
-    if (!btn) return;
-    const val = parseInt(btn.dataset.val, 10);
-    if (state.selectedRating === val) {
-      state.selectedRating = null;
-      btn.classList.remove('selected');
-    } else {
-      state.selectedRating = val;
-      document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    }
-  });
+  // ─── File processing ──────────────────────────────────────────────────────────
 
-  // --- Submit ---
-  document.getElementById('submit_btn').addEventListener('click', () => {
-    if (!validate()) return;
-    if (state.questions.length >= MAX_QUESTIONS) {
-      showFlash('Maximum of 50 questions reached.', true);
+  function processFile(file) {
+    if (!file.name.toLowerCase().endsWith('.csv') && file.type !== 'text/csv') {
+      showFlash('Please upload a .csv file.', true);
       return;
     }
 
-    const id = `q${String(state.nextId).padStart(3, '0')}`;
-    state.nextId++;
+    document.getElementById('uploaded_name').textContent = `File: ${file.name}`;
+    document.getElementById('uploaded_name').classList.add('visible');
 
-    const q = {
-      id,
-      question_text: qtextEl.value.trim(),
-      domain_tags: checkedDomains(),
-      impact_self_assessment: state.selectedRating,
-      supporting_rationale: rationaleEl.value.trim() || null,
-      submitted_by: submitterEl.value.trim(),
-      participant_type: typeEl.value,
+    const reader = new FileReader();
+    reader.onload = e => {
+      const text = e.target.result;
+      const result = parseAndValidate(text);
+      renderReport(result);
+      renderReview(result.accepted);
     };
+    reader.readAsText(file);
+  }
 
-    state.questions.push(q);
-    clearForm();
-    render();
-    showFlash(`Question ${id} added.`);
-  });
+  // ─── CSV parser ───────────────────────────────────────────────────────────────
 
-  // --- Clear form ---
-  document.getElementById('clear_btn').addEventListener('click', clearForm);
+  /**
+   * Minimal RFC-4180-compliant CSV parser.
+   * Returns an array of string arrays (rows × cols).
+   */
+  function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    // Normalise line endings
+    const input = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
-  // --- Export ---
-  exportBtn.addEventListener('click', () => {
-    if (state.questions.length === 0) return;
-    const json = JSON.stringify(state.questions, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
+    for (let i = 0; i < input.length; i++) {
+      const ch = input[i];
+      const next = input[i + 1];
+
+      if (inQuotes) {
+        if (ch === '"' && next === '"') {
+          // Escaped quote
+          field += '"';
+          i++;
+        } else if (ch === '"') {
+          inQuotes = false;
+        } else {
+          field += ch;
+        }
+      } else {
+        if (ch === '"') {
+          inQuotes = true;
+        } else if (ch === ',') {
+          row.push(field);
+          field = '';
+        } else if (ch === '\n') {
+          row.push(field);
+          field = '';
+          rows.push(row);
+          row = [];
+        } else {
+          field += ch;
+        }
+      }
+    }
+
+    // Last field / row
+    if (field !== '' || row.length > 0) {
+      row.push(field);
+      rows.push(row);
+    }
+
+    // Drop trailing empty rows (e.g. final newline)
+    while (rows.length > 0 && rows[rows.length - 1].every(c => c.trim() === '')) {
+      rows.pop();
+    }
+
+    return rows;
+  }
+
+  // ─── Parse & validate ─────────────────────────────────────────────────────────
+
+  function parseAndValidate(text) {
+    const rows = parseCSV(text);
+
+    if (rows.length === 0) {
+      return { accepted: [], report: [], error: 'The file is empty.' };
+    }
+
+    // Validate header row
+    const header = rows[0].map(h => h.trim().toLowerCase());
+    const expectedLower = CSV_HEADERS.map(h => h.toLowerCase());
+    const missingCols = expectedLower.filter(h => !header.includes(h));
+
+    if (missingCols.length > 0) {
+      return {
+        accepted: [],
+        report: [],
+        error: `Missing required columns: ${missingCols.join(', ')}. Please use the provided template.`,
+      };
+    }
+
+    // Build column index map (case-insensitive)
+    const colIdx = {};
+    CSV_HEADERS.forEach(col => {
+      const idx = header.indexOf(col.toLowerCase());
+      colIdx[col] = idx;
+    });
+
+    const dataRows = rows.slice(1);
+    const accepted = [];
+    const report   = [];
+    let acceptedCount = 0;
+
+    dataRows.forEach((rawRow, i) => {
+      const csvRowNum = i + 2; // 1-based, accounting for header
+
+      const get = col => {
+        const idx = colIdx[col];
+        return idx >= 0 && idx < rawRow.length ? rawRow[idx].trim() : '';
+      };
+
+      const errors = [];
+
+      // question_text
+      const qtext = get('question_text');
+      if (!qtext) {
+        errors.push('question_text is required');
+      } else if (qtext.length < 20) {
+        errors.push(`question_text too short (${qtext.length} chars; min 20)`);
+      } else if (qtext.length > 300) {
+        errors.push(`question_text too long (${qtext.length} chars; max 300)`);
+      }
+
+      // domain_tags
+      const domainRaw = get('domain_tags');
+      let domainTags = [];
+      if (!domainRaw) {
+        errors.push('domain_tags is required');
+      } else {
+        domainTags = domainRaw.split('|').map(d => d.trim()).filter(Boolean);
+        if (domainTags.length < 1 || domainTags.length > 3) {
+          errors.push(`domain_tags must have 1–3 values (found ${domainTags.length})`);
+        } else {
+          const invalid = domainTags.filter(d => !VALID_DOMAINS.includes(d));
+          if (invalid.length > 0) {
+            errors.push(`unrecognised domain(s): ${invalid.map(d => `"${d}"`).join(', ')}`);
+          }
+        }
+      }
+
+      // participant_type
+      const ptype = get('participant_type');
+      if (!ptype) {
+        errors.push('participant_type is required');
+      } else if (!VALID_PARTICIPANT_TYPES.includes(ptype)) {
+        errors.push(`participant_type must be one of: ${VALID_PARTICIPANT_TYPES.join(', ')}`);
+      }
+
+      // submitted_by
+      const submitter = get('submitted_by');
+      if (!submitter) {
+        errors.push('submitted_by is required');
+      }
+
+      // impact_self_assessment (optional)
+      const impactRaw = get('impact_self_assessment');
+      let impact = null;
+      if (impactRaw !== '') {
+        const parsed = parseInt(impactRaw, 10);
+        if (isNaN(parsed) || parsed < 1 || parsed > 5 || String(parsed) !== impactRaw) {
+          errors.push('impact_self_assessment must be an integer 1–5');
+        } else {
+          impact = parsed;
+        }
+      }
+
+      // supporting_rationale (optional)
+      const rationale = get('supporting_rationale');
+      let rationaleVal = rationale || null;
+      if (rationale) {
+        const wc = wordCount(rationale);
+        if (wc > 200) {
+          errors.push(`supporting_rationale exceeds 200 words (${wc} words)`);
+        }
+      }
+
+      // 50-question cap
+      if (errors.length === 0 && acceptedCount >= 50) {
+        errors.push('row exceeds the 50-question cap and was not imported');
+      }
+
+      if (errors.length > 0) {
+        report.push({
+          csvRowNum,
+          status: 'rejected',
+          qtext,
+          domainTags,
+          reason: errors.join('; '),
+        });
+      } else {
+        acceptedCount++;
+        const id = `q${String(acceptedCount).padStart(3, '0')}`;
+        const question = {
+          id,
+          question_text: qtext,
+          domain_tags: domainTags,
+          impact_self_assessment: impact,
+          supporting_rationale: rationaleVal,
+          submitted_by: submitter,
+          participant_type: ptype,
+        };
+        accepted.push(question);
+        report.push({
+          csvRowNum,
+          status: 'accepted',
+          qtext,
+          domainTags,
+          id,
+        });
+      }
+    });
+
+    return { accepted, report };
+  }
+
+  // ─── Render report ────────────────────────────────────────────────────────────
+
+  function renderReport(result) {
+    const section = document.getElementById('report_section');
+    section.classList.remove('hidden');
+
+    const summary = document.getElementById('report_summary');
+    const tbody   = document.getElementById('report_tbody');
+
+    if (result.error) {
+      summary.innerHTML = `<span class="report-pill pill-rejected">Error: ${escHtml(result.error)}</span>`;
+      tbody.innerHTML = '';
+      return;
+    }
+
+    const nAcc = result.accepted.length;
+    const nRej = result.report.filter(r => r.status === 'rejected').length;
+
+    summary.innerHTML = `
+      <span class="report-pill pill-accepted">&#10003; ${nAcc} accepted</span>
+      ${nRej > 0 ? `<span class="report-pill pill-rejected">&#10007; ${nRej} rejected</span>` : ''}
+    `;
+
+    tbody.innerHTML = result.report.map(row => {
+      const isRej = row.status === 'rejected';
+      const badge = isRej
+        ? `<span class="status-badge badge-err">Rejected</span>`
+        : `<span class="status-badge badge-ok">Accepted</span>`;
+
+      const tags = row.domainTags.length > 0
+        ? row.domainTags.map(d => `<span class="tag">${escHtml(d)}</span>`).join(' ')
+        : '<span style="color:var(--text-muted);font-size:0.78rem">—</span>';
+
+      const note = isRej
+        ? `<span class="reject-reason">${escHtml(row.reason)}</span>`
+        : `<span style="color:var(--text-muted);font-family:var(--mono);font-size:0.75rem">${row.id}</span>`;
+
+      return `
+        <tr class="${isRej ? 'row-rejected' : 'row-accepted'}">
+          <td class="row-num">${row.csvRowNum}</td>
+          <td>${badge}</td>
+          <td class="q-text-cell"><div class="q-text-trunc">${escHtml(row.qtext || '—')}</div></td>
+          <td>${tags}</td>
+          <td>${note}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ─── Render review table ──────────────────────────────────────────────────────
+
+  function renderReview(accepted) {
+    const section = document.getElementById('export_section');
+
+    if (accepted.length === 0) {
+      section.classList.add('hidden');
+      return;
+    }
+
+    section.classList.remove('hidden');
+
+    const tbody = document.getElementById('review_tbody');
+    tbody.innerHTML = accepted.map(q => {
+      const tags = q.domain_tags.map(d => `<span class="tag">${escHtml(d)}</span>`).join(' ');
+      const impact = q.impact_self_assessment !== null
+        ? q.impact_self_assessment
+        : '<span style="color:var(--text-muted)">—</span>';
+      return `
+        <tr class="row-accepted">
+          <td class="row-num">${q.id}</td>
+          <td class="q-text-cell"><div class="q-text-trunc">${escHtml(q.question_text)}</div></td>
+          <td>${tags}</td>
+          <td>${impact}</td>
+          <td>${escHtml(q.submitted_by)}</td>
+          <td>${escHtml(q.participant_type)}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  // ─── Export ───────────────────────────────────────────────────────────────────
+
+  document.getElementById('export_btn').addEventListener('click', () => {
+    // Re-parse from current file
+    if (!csvInput.files[0] && !window._lastParsed) return;
+    const data = window._lastParsed;
+    if (!data || data.accepted.length === 0) return;
+    const json = JSON.stringify(data.accepted, null, 2);
     const date = new Date().toISOString().slice(0, 10);
-    a.href     = url;
-    a.download = `submissions-${date}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadFile(json, `submissions-${date}.json`, 'application/json');
     showFlash('JSON exported.');
   });
 
-  // --- Helpers ---
-  function checkedDomains() {
-    return [...document.querySelectorAll('#domain_grid input:checked')].map(cb => cb.value);
-  }
+  // ─── Reset ────────────────────────────────────────────────────────────────────
+
+  document.getElementById('reset_btn').addEventListener('click', () => {
+    csvInput.value = '';
+    document.getElementById('uploaded_name').classList.remove('visible');
+    document.getElementById('report_section').classList.add('hidden');
+    document.getElementById('export_section').classList.add('hidden');
+    document.getElementById('report_tbody').innerHTML = '';
+    document.getElementById('review_tbody').innerHTML = '';
+    document.getElementById('report_summary').innerHTML = '';
+    window._lastParsed = null;
+    showFlash('Ready to upload a new file.');
+  });
+
+  // ─── Wire up parse result storage ────────────────────────────────────────────
+
+  const _origProcessFile = processFile;
+  window.processFile = function(file) {
+    if (!file.name.toLowerCase().endsWith('.csv') && file.type !== 'text/csv') {
+      showFlash('Please upload a .csv file.', true);
+      return;
+    }
+    document.getElementById('uploaded_name').textContent = `File: ${file.name}`;
+    document.getElementById('uploaded_name').classList.add('visible');
+    const reader = new FileReader();
+    reader.onload = e => {
+      const result = parseAndValidate(e.target.result);
+      window._lastParsed = result;
+      renderReport(result);
+      renderReview(result.accepted);
+    };
+    reader.readAsText(file);
+  };
+
+  // Re-bind listeners to use the wrapped version
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) window.processFile(file);
+  }, { once: false });
+
+  csvInput.addEventListener('change', () => {
+    if (csvInput.files[0]) window.processFile(csvInput.files[0]);
+  });
+
+  // ─── Helpers ──────────────────────────────────────────────────────────────────
 
   function wordCount(text) {
     return text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
   }
 
-  function validate() {
-    let ok = true;
-
-    const qlen = qtextEl.value.trim().length;
-    setError(qtextEl, qtextErr, qlen < 20 || qlen > 300);
-    if (qlen < 20 || qlen > 300) ok = false;
-
-    const domains = checkedDomains();
-    const domainInvalid = domains.length < 1 || domains.length > 3;
-    domainErr.classList.toggle('visible', domainInvalid);
-    if (domainInvalid) ok = false;
-
-    const words = wordCount(rationaleEl.value);
-    setError(rationaleEl, rationaleErr, words > MAX_RATIONALE_WORDS);
-    if (words > MAX_RATIONALE_WORDS) ok = false;
-
-    const noSubmitter = submitterEl.value.trim() === '';
-    setError(submitterEl, submitterErr, noSubmitter);
-    if (noSubmitter) ok = false;
-
-    const noType = typeEl.value === '';
-    setError(typeEl, typeErr, noType);
-    if (noType) ok = false;
-
-    return ok;
-  }
-
-  function setError(input, msgEl, isError) {
-    input.classList.toggle('error', isError);
-    msgEl.classList.toggle('visible', isError);
-  }
-
-  function clearForm() {
-    qtextEl.value = '';
-    rationaleEl.value = '';
-    submitterEl.value = '';
-    typeEl.value = '';
-    qtextCount.textContent = '0 / 300';
-    qtextCount.classList.remove('over');
-    rationaleCount.textContent = '0 words / 200';
-    rationaleCount.classList.remove('over');
-    document.querySelectorAll('.domain-option').forEach(opt => {
-      opt.querySelector('input').checked = false;
-      opt.classList.remove('selected');
-    });
-    document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('selected'));
-    state.selectedRating = null;
-    [qtextEl, rationaleEl, submitterEl, typeEl].forEach(el => el.classList.remove('error'));
-    [qtextErr, rationaleErr, submitterErr, typeErr, domainErr].forEach(el => el.classList.remove('visible'));
-  }
-
-  function render() {
-    const n = state.questions.length;
-
-    // Counter pill
-    counterEl.textContent = `${n} / ${MAX_QUESTIONS}`;
-    counterEl.classList.toggle('limit', n >= MAX_QUESTIONS);
-
-    // Submit button
-    submitBtn.disabled = n >= MAX_QUESTIONS;
-
-    // Export button
-    exportBtn.disabled = n === 0;
-
-    // List heading count
-    listCount.textContent = n > 0 ? `(${n})` : '';
-
-    // Question list
-    if (n === 0) {
-      listEl.innerHTML = '<div class="list-empty">No questions submitted yet.</div>';
-      return;
-    }
-
-    listEl.innerHTML = state.questions.map((q, i) => {
-      const domains = q.domain_tags.map(d => `<span class="tag">${d}</span>`).join('');
-      const rating  = q.impact_self_assessment
-        ? `<span class="tag rating">Impact: ${q.impact_self_assessment}</span>` : '';
-      const ptype   = `<span class="tag type">${q.participant_type}</span>`;
-      return `
-        <div class="q-item">
-          <div class="q-item-header">
-            <span class="q-id">${q.id}</span>
-            <span class="q-text">${escHtml(q.question_text)}</span>
-            <button class="btn-danger" onclick="removeQuestion(${i})">Remove</button>
-          </div>
-          <div class="q-meta">
-            ${domains}
-            ${rating}
-            ${ptype}
-          </div>
-        </div>`;
-    }).join('');
-  }
-
-  function removeQuestion(index) {
-    state.questions.splice(index, 1);
-    render();
-  }
-
   function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function csvQuote(val) {
+    const s = String(val);
+    if (s.includes(',') || s.includes('"') || s.includes('\n') || s.includes('\r')) {
+      return `"${s.replace(/"/g, '""')}"`;
+    }
+    return s;
+  }
+
+  function downloadFile(content, filename, mimeType) {
+    const blob = new Blob([content], { type: mimeType });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   let flashTimer;
   function showFlash(msg, isError = false) {
-    flashEl.textContent = msg;
-    flashEl.style.background = isError ? 'var(--danger)' : 'var(--success)';
-    flashEl.classList.add('show');
+    const el = document.getElementById('flash');
+    el.textContent = msg;
+    el.style.background = isError ? 'var(--danger)' : 'var(--success)';
+    el.classList.add('show');
     clearTimeout(flashTimer);
-    flashTimer = setTimeout(() => flashEl.classList.remove('show'), 2500);
+    flashTimer = setTimeout(() => el.classList.remove('show'), 2500);
   }
-
-  // Initial render
-  render();
 </script>
 </body>
 </html>
