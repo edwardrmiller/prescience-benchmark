@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescience Benchmark — Panel Tooling</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f8f6;
+      --surface: #ffffff;
+      --border: #d4d4cc;
+      --border-focus: #4a6fa5;
+      --text: #1a1a18;
+      --text-muted: #6b6b66;
+      --accent: #4a6fa5;
+      --accent-hover: #3a5f95;
+      --danger: #c0392b;
+      --danger-bg: #fdf2f1;
+      --success: #27ae60;
+      --success-bg: #f1faf5;
+      --success-border: #a8dab5;
+      --tag-bg: #e8eef5;
+      --tag-text: #3a5f95;
+      --font: system-ui, -apple-system, sans-serif;
+      --mono: ui-monospace, monospace;
+
+      /* Rating colours */
+      --r5: #7b2d2d; --r5-bg: #fdf0f0;
+      --r4: #7a4f00; --r4-bg: #fef8ec;
+      --r3: #3a5a1a; --r3-bg: #f3fae8;
+      --r2: #2a5a6a; --r2-bg: #edf7fa;
+      --r1: #4a4a4a; --r1-bg: #f4f4f4;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 1.05rem; font-weight: 600; }
+    header .subtitle { font-size: 0.83rem; color: var(--text-muted); }
+    .header-badge {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+    }
+
+    /* ── Screens ────────────────────────────── */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ── Cards ──────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+    .card + .card { margin-top: 1.25rem; }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Forms ──────────────────────────────── */
+    .field { margin-bottom: 1.25rem; }
+    .field:last-child { margin-bottom: 0; }
+    label.field-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+    label.field-label .hint { font-weight: 400; color: var(--text-muted); margin-left: 0.4rem; }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--surface);
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(74,111,165,0.12);
+    }
+
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.5rem;
+    }
+    .domain-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.12s, border-color 0.12s;
+      user-select: none;
+    }
+    .domain-option:hover { background: var(--tag-bg); }
+    .domain-option.selected {
+      background: var(--tag-bg);
+      border-color: var(--border-focus);
+      color: var(--tag-text);
+      font-weight: 500;
+    }
+    .domain-option input[type="checkbox"] { accent-color: var(--accent); }
+
+    /* ── Buttons ────────────────────────────── */
+    button {
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.55rem 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-secondary { background: var(--surface); border-color: var(--border); color: var(--text); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-export { background: var(--success); color: #fff; }
+    .btn-export:hover { background: #219150; }
+    .btn-sm {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.65rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ── Upload zone ────────────────────────── */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--accent);
+      background: var(--tag-bg);
+    }
+    #corpus_input { display: none; }
+    .upload-icon { font-size: 1.8rem; line-height: 1; margin-bottom: 0.4rem; }
+    .upload-label { font-size: 0.88rem; color: var(--text-muted); }
+    .upload-label strong { color: var(--accent); }
+    .upload-status {
+      margin-top: 0.65rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+    .upload-status.ok { color: var(--success); font-weight: 500; }
+    .upload-status.err { color: var(--danger); }
+
+    /* ── Progress bar ───────────────────────── */
+    .progress-wrap {
+      margin-bottom: 1.5rem;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .progress-track {
+      height: 5px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    /* ── Rating criterion ───────────────────── */
+    .criterion {
+      background: var(--warning-bg, #fef9e7);
+      border: 1px solid #f0c040;
+      border-radius: 6px;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #6b5800;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* ── Triage card ────────────────────────── */
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    .q-id-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Rating buttons ─────────────────────── */
+    .rating-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+    .rating-btn {
+      border: 2px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      cursor: pointer;
+      padding: 0.75rem 0.25rem;
+      text-align: center;
+      transition: background 0.12s, border-color 0.12s, transform 0.08s;
+      font-family: var(--font);
+    }
+    .rating-btn:hover { transform: translateY(-1px); }
+    .rating-btn .r-num {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .rating-btn .r-label {
+      display: block;
+      font-size: 0.68rem;
+      margin-top: 0.2rem;
+      color: var(--text-muted);
+    }
+    .rating-btn .r-desc {
+      display: block;
+      font-size: 0.63rem;
+      margin-top: 0.25rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Per-rating colour theming */
+    .rating-btn[data-val="5"]                    { border-color: #e8b4b0; }
+    .rating-btn[data-val="5"]:hover              { background: var(--r5-bg); }
+    .rating-btn[data-val="5"].chosen             { background: var(--r5-bg); border-color: var(--r5); }
+    .rating-btn[data-val="5"].chosen .r-num      { color: var(--r5); }
+    .rating-btn[data-val="5"].chosen .r-label,
+    .rating-btn[data-val="5"].chosen .r-desc     { color: var(--r5); opacity: 0.8; }
+
+    .rating-btn[data-val="4"]                    { border-color: #f0c040; }
+    .rating-btn[data-val="4"]:hover              { background: var(--r4-bg); }
+    .rating-btn[data-val="4"].chosen             { background: var(--r4-bg); border-color: var(--r4); }
+    .rating-btn[data-val="4"].chosen .r-num      { color: var(--r4); }
+    .rating-btn[data-val="4"].chosen .r-label,
+    .rating-btn[data-val="4"].chosen .r-desc     { color: var(--r4); opacity: 0.8; }
+
+    .rating-btn[data-val="3"]                    { border-color: #a8dab5; }
+    .rating-btn[data-val="3"]:hover              { background: var(--r3-bg); }
+    .rating-btn[data-val="3"].chosen             { background: var(--r3-bg); border-color: var(--r3); }
+    .rating-btn[data-val="3"].chosen .r-num      { color: var(--r3); }
+    .rating-btn[data-val="3"].chosen .r-label,
+    .rating-btn[data-val="3"].chosen .r-desc     { color: var(--r3); opacity: 0.8; }
+
+    .rating-btn[data-val="2"]                    { border-color: #a0cdd8; }
+    .rating-btn[data-val="2"]:hover              { background: var(--r2-bg); }
+    .rating-btn[data-val="2"].chosen             { background: var(--r2-bg); border-color: var(--r2); }
+    .rating-btn[data-val="2"].chosen .r-num      { color: var(--r2); }
+    .rating-btn[data-val="2"].chosen .r-label,
+    .rating-btn[data-val="2"].chosen .r-desc     { color: var(--r2); opacity: 0.8; }
+
+    .rating-btn[data-val="1"]                    { border-color: #c8c8c8; }
+    .rating-btn[data-val="1"]:hover              { background: var(--r1-bg); }
+    .rating-btn[data-val="1"].chosen             { background: var(--r1-bg); border-color: #888; }
+    .rating-btn[data-val="1"].chosen .r-num      { color: var(--r1); }
+    .rating-btn[data-val="1"].chosen .r-label,
+    .rating-btn[data-val="1"].chosen .r-desc     { color: var(--r1); opacity: 0.8; }
+
+    /* Triage nav */
+    .triage-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .triage-nav .nav-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ── Ranking stage ──────────────────────── */
+    .rank-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      cursor: grab;
+      user-select: none;
+      transition: box-shadow 0.15s, background 0.1s;
+    }
+    .rank-item:active, .rank-item.dragging {
+      cursor: grabbing;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background: var(--tag-bg);
+      opacity: 0.95;
+    }
+    .rank-item.drag-over-top    { border-top: 2px solid var(--accent); }
+    .rank-item.drag-over-bottom { border-bottom: 2px solid var(--accent); }
+
+    .rank-pos {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      width: 1.6rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .rank-score-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .score-5 { background: var(--r5-bg); color: var(--r5); }
+    .score-4 { background: var(--r4-bg); color: var(--r4); }
+
+    .rank-question {
+      font-size: 0.88rem;
+      flex: 1;
+      line-height: 1.45;
+    }
+    .rank-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .rank-controls button {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 3px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .rank-controls button:hover { background: var(--border); color: var(--text); }
+    .rank-controls button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .drag-handle {
+      color: var(--border);
+      font-size: 1rem;
+      flex-shrink: 0;
+      cursor: grab;
+    }
+
+    /* ── Export / summary ───────────────────── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .summary-stat {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    .summary-stat .stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .summary-stat .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ── Misc ───────────────────────────────── */
+    .hidden { display: none !important; }
+
+    .info-box {
+      background: var(--tag-bg);
+      border: 1px solid var(--border-focus);
+      border-radius: 6px;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--tag-text);
+      margin-bottom: 1.25rem;
+    }
+
+    .flash {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--success);
+      color: #fff;
+      padding: 0.65rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      z-index: 100;
+    }
+    .flash.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      main { padding: 1rem; }
+      .rating-grid { grid-template-columns: repeat(5, 1fr); }
+      .rating-btn .r-desc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Prescience Benchmark</h1>
+  <span class="subtitle">Expert Panel Tooling</span>
+  <span class="header-badge hidden" id="header_badge"></span>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1 — Setup
+════════════════════════════════════════════ -->
+<div class="screen active" id="screen_setup">
+  <main>
+    <div class="card">
+      <h2>Load question corpus</h2>
+      <div class="upload-zone" id="upload_zone">
+        <div class="upload-icon">&#128196;</div>
+        <div class="upload-label"><strong>Choose a JSON file</strong> or drag and drop</div>
+      </div>
+      <input type="file" id="corpus_input" accept=".json,application/json">
+      <div class="upload-status" id="upload_status"></div>
+    </div>
+
+    <div class="card">
+      <h2>Panellist configuration</h2>
+
+      <div class="field">
+        <label class="field-label" for="panellist_id">Your identifier</label>
+        <input type="text" id="panellist_id" placeholder="e.g. expert_A">
+      </div>
+
+      <div class="field">
+        <label class="field-label">Assigned domain(s) <span class="hint">You will only see questions in these domains</span></label>
+        <div class="domain-grid" id="domain_grid">
+          <label class="domain-option"><input type="checkbox" value="Healthcare &amp; Pandemic Preparedness"> Healthcare &amp; Pandemic Preparedness</label>
+          <label class="domain-option"><input type="checkbox" value="Government Policy &amp; Governance"> Government Policy &amp; Governance</label>
+          <label class="domain-option"><input type="checkbox" value="Military &amp; Security"> Military &amp; Security</label>
+          <label class="domain-option"><input type="checkbox" value="Economics &amp; Finance"> Economics &amp; Finance</label>
+          <label class="domain-option"><input type="checkbox" value="Technology &amp; AI"> Technology &amp; AI</label>
+          <label class="domain-option"><input type="checkbox" value="Climate &amp; Environment"> Climate &amp; Environment</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" id="start_btn" disabled>Begin triage</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2 — Triage
+════════════════════════════════════════════ -->
+<div class="screen" id="screen_triage">
+  <main>
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progress_label">Question 1 of N</span>
+        <span id="progress_pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress_fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="criterion">
+      "As a trusted advisor to a senior decision-maker in your domain: how urgently should this question receive serious investigation in the next six months?"
+    </div>
+
+    <div class="question-card" id="triage_card">
+      <div class="question-meta" id="triage_meta"></div>
+      <div class="question-text" id="triage_text"></div>
+      <div class="rating-grid" id="rating_grid">
+        <button class="rating-btn" data-val="1">
+          <span class="r-num">1</span>
+          <span class="r-label">Negligible</span>
+          <span class="r-desc">Trivially known or not decision-relevant</span>
+        </button>
+        <button class="rating-btn" data-val="2">
+          <span class="r-num">2</span>
+          <span class="r-label">Low</span>
+          <span class="r-desc">Low stakes or already well-covered</span>
+        </button>
+        <button class="rating-btn" data-val="3">
+          <span class="r-num">3</span>
+          <span class="r-label">Moderate</span>
+          <span class="r-desc">Worth tracking. Not urgent.</span>
+        </button>
+        <button class="rating-btn" data-val="4">
+          <span class="r-num">4</span>
+          <span class="r-label">High</span>
+          <span class="r-desc">Well-run orgs should be investigating this</span>
+        </button>
+        <button class="rating-btn" data-val="5">
+          <span class="r-num">5</span>
+          <span class="r-label">Critical</span>
+          <span class="r-desc">Should be on a minister's desk now</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="triage-nav">
+      <button class="btn-secondary btn-sm" id="prev_btn">&#8592; Previous</button>
+      <span class="nav-hint" id="nav_hint">Select a rating to advance</span>
+      <button class="btn-secondary btn-sm" id="next_btn" disabled>Next &#8594;</button>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3 — Rank
+════════════════════════════════════════════ -->
+<div class="screen" id="screen_rank">
+  <main>
+    <div class="info-box" id="rank_intro"></div>
+    <div class="rank-list" id="rank_list"></div>
+    <div class="actions">
+      <button class="btn-primary" id="to_export_btn">Continue to export &#8594;</button>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 4 — Export
+════════════════════════════════════════════ -->
+<div class="screen" id="screen_export">
+  <main>
+    <div class="card">
+      <h2>Session summary</h2>
+      <div class="summary-grid" id="summary_grid"></div>
+      <div class="actions">
+        <button class="btn-export" id="export_btn">&#8595; Export ratings JSON</button>
+        <button class="btn-secondary" id="restart_btn">Start new session</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="flash" id="flash"></div>
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+
+const state = {
+  corpus: [],          // full loaded corpus
+  queue: [],           // filtered & shuffled questions for this panellist
+  cursor: 0,           // current triage index
+  ratings: {},         // { question_id: score }
+  ranking: [],         // ordered array of question_ids (4–5 cluster)
+  panellistId: '',
+  domains: [],
+};
+
+// ─── Constants ────────────────────────────────────────────────────────────────
+
+const VALID_DOMAINS = [
+  'Healthcare & Pandemic Preparedness',
+  'Government Policy & Governance',
+  'Military & Security',
+  'Economics & Finance',
+  'Technology & AI',
+  'Climate & Environment',
+];
+
+// ─── Screen management ────────────────────────────────────────────────────────
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ─── Setup screen ─────────────────────────────────────────────────────────────
+
+const uploadZone  = document.getElementById('upload_zone');
+const corpusInput = document.getElementById('corpus_input');
+const uploadStatus = document.getElementById('upload_status');
+const startBtn    = document.getElementById('start_btn');
+const panellistInput = document.getElementById('panellist_id');
+
+uploadZone.addEventListener('click', () => corpusInput.click());
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) loadCorpus(e.dataTransfer.files[0]);
+});
+corpusInput.addEventListener('change', () => {
+  if (corpusInput.files[0]) loadCorpus(corpusInput.files[0]);
+});
+
+function loadCorpus(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!Array.isArray(data) || data.length === 0) throw new Error('File must be a non-empty JSON array.');
+      // Basic schema check
+      if (!data[0].question_text || !data[0].domain_tags) throw new Error('JSON does not match expected corpus schema.');
+      state.corpus = data;
+      uploadStatus.textContent = `✓ Loaded ${data.length} question${data.length !== 1 ? 's' : ''} from ${file.name}`;
+      uploadStatus.className = 'upload-status ok';
+      checkSetupReady();
+    } catch (err) {
+      uploadStatus.textContent = `Error: ${err.message}`;
+      uploadStatus.className = 'upload-status err';
+      state.corpus = [];
+      checkSetupReady();
+    }
+  };
+  reader.readAsText(file);
+}
+
+// Domain checkbox visual state
+document.getElementById('domain_grid').addEventListener('change', e => {
+  if (e.target.type !== 'checkbox') return;
+  e.target.closest('.domain-option').classList.toggle('selected', e.target.checked);
+  checkSetupReady();
+});
+
+panellistInput.addEventListener('input', checkSetupReady);
+
+function checkSetupReady() {
+  const hasCorpus = state.corpus.length > 0;
+  const hasId = panellistInput.value.trim().length > 0;
+  const hasDomain = [...document.querySelectorAll('#domain_grid input:checked')].length > 0;
+  startBtn.disabled = !(hasCorpus && hasId && hasDomain);
+}
+
+startBtn.addEventListener('click', () => {
+  state.panellistId = panellistInput.value.trim();
+  state.domains = [...document.querySelectorAll('#domain_grid input:checked')].map(cb => cb.value);
+
+  // Filter corpus to domain-matching questions, then shuffle
+  const filtered = state.corpus.filter(q =>
+    q.domain_tags.some(d => state.domains.includes(d))
+  );
+
+  if (filtered.length === 0) {
+    showFlash('No questions found for the selected domains.', true);
+    return;
+  }
+
+  state.queue = shuffle(filtered);
+  state.cursor = 0;
+  state.ratings = {};
+
+  // Update header badge
+  const badge = document.getElementById('header_badge');
+  badge.textContent = `${state.panellistId} · ${state.domains.join(', ')}`;
+  badge.classList.remove('hidden');
+
+  showScreen('screen_triage');
+  renderTriageCard();
+});
+
+// ─── Triage screen ────────────────────────────────────────────────────────────
+
+const triageText = document.getElementById('triage_text');
+const triageMeta = document.getElementById('triage_meta');
+const progressLabel = document.getElementById('progress_label');
+const progressPct   = document.getElementById('progress_pct');
+const progressFill  = document.getElementById('progress_fill');
+const prevBtn = document.getElementById('prev_btn');
+const nextBtn = document.getElementById('next_btn');
+const navHint = document.getElementById('nav_hint');
+
+function renderTriageCard() {
+  const q = state.queue[state.cursor];
+  const n = state.queue.length;
+  const rated = Object.keys(state.ratings).length;
+
+  // Progress
+  const pct = Math.round((rated / n) * 100);
+  progressLabel.textContent = `Question ${state.cursor + 1} of ${n}`;
+  progressPct.textContent   = `${pct}% rated`;
+  progressFill.style.width  = `${pct}%`;
+
+  // Question content
+  triageMeta.innerHTML = [
+    `<span class="tag q-id-tag">${q.id}</span>`,
+    ...q.domain_tags.map(d => `<span class="tag">${escHtml(d)}</span>`),
+  ].join('');
+  triageText.textContent = q.question_text;
+
+  // Rating buttons — mark currently chosen rating
+  const current = state.ratings[q.id] ?? null;
+  document.querySelectorAll('.rating-btn').forEach(btn => {
+    const val = parseInt(btn.dataset.val, 10);
+    btn.classList.toggle('chosen', val === current);
+  });
+
+  // Nav buttons
+  prevBtn.disabled = state.cursor === 0;
+  const hasRating = current !== null;
+  nextBtn.disabled = !hasRating;
+  navHint.textContent = hasRating ? 'Rating saved' : 'Select a rating to advance';
+}
+
+// Rating selection — auto-advance
+document.getElementById('rating_grid').addEventListener('click', e => {
+  const btn = e.target.closest('.rating-btn');
+  if (!btn) return;
+
+  const q   = state.queue[state.cursor];
+  const val = parseInt(btn.dataset.val, 10);
+  state.ratings[q.id] = val;
+
+  // Brief visual feedback, then advance
+  document.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('chosen'));
+  btn.classList.add('chosen');
+  navHint.textContent = 'Rating saved';
+  nextBtn.disabled = false;
+
+  setTimeout(() => {
+    if (state.cursor < state.queue.length - 1) {
+      state.cursor++;
+      renderTriageCard();
+    } else {
+      // All rated — move to ranking
+      beginRanking();
+    }
+  }, 280);
+});
+
+prevBtn.addEventListener('click', () => {
+  if (state.cursor > 0) { state.cursor--; renderTriageCard(); }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (state.cursor < state.queue.length - 1) {
+    state.cursor++;
+    renderTriageCard();
+  } else {
+    beginRanking();
+  }
+});
+
+// ─── Ranking screen ───────────────────────────────────────────────────────────
+
+function beginRanking() {
+  // Collect 4–5 rated questions
+  const topCluster = state.queue.filter(q => (state.ratings[q.id] ?? 0) >= 4);
+
+  if (topCluster.length < 2) {
+    // Skip ranking — go directly to export
+    state.ranking = topCluster.map(q => q.id);
+    buildExportScreen();
+    showScreen('screen_export');
+    return;
+  }
+
+  // Sort by score desc, then original corpus order
+  topCluster.sort((a, b) => {
+    const diff = (state.ratings[b.id] ?? 0) - (state.ratings[a.id] ?? 0);
+    return diff !== 0 ? diff : state.corpus.findIndex(q => q.id === a.id) - state.corpus.findIndex(q => q.id === b.id);
+  });
+
+  state.ranking = topCluster.map(q => q.id);
+
+  document.getElementById('rank_intro').textContent =
+    `Ranking ${topCluster.length} questions rated High or Critical. Drag rows or use the ↑↓ buttons to set your order. Position 1 = most important.`;
+
+  renderRankList();
+  showScreen('screen_rank');
+}
+
+function renderRankList() {
+  const listEl = document.getElementById('rank_list');
+  const idToQ  = Object.fromEntries(state.corpus.map(q => [q.id, q]));
+
+  listEl.innerHTML = state.ranking.map((id, i) => {
+    const q     = idToQ[id];
+    const score = state.ratings[id];
+    const isFirst = i === 0;
+    const isLast  = i === state.ranking.length - 1;
+    return `
+      <div class="rank-item" draggable="true" data-id="${id}" data-idx="${i}">
+        <span class="drag-handle">⠿</span>
+        <span class="rank-pos">#${i + 1}</span>
+        <span class="rank-score-badge score-${score}">${score}</span>
+        <span class="rank-question">${escHtml(q.question_text)}</span>
+        <div class="rank-controls">
+          <button onclick="moveRankItem(${i}, -1)" ${isFirst ? 'disabled' : ''} title="Move up">↑</button>
+          <button onclick="moveRankItem(${i}, +1)" ${isLast  ? 'disabled' : ''} title="Move down">↓</button>
+        </div>
+      </div>`;
+  }).join('');
+
+  initDragAndDrop();
+}
+
+function moveRankItem(fromIdx, direction) {
+  const toIdx = fromIdx + direction;
+  if (toIdx < 0 || toIdx >= state.ranking.length) return;
+  const arr = state.ranking;
+  [arr[fromIdx], arr[toIdx]] = [arr[toIdx], arr[fromIdx]];
+  renderRankList();
+}
+
+// ── Drag and drop ──────────────────────────────────────────────────────────────
+
+let dragSrcIdx = null;
+
+function initDragAndDrop() {
+  const items = document.querySelectorAll('.rank-item');
+
+  items.forEach(item => {
+    item.addEventListener('dragstart', e => {
+      dragSrcIdx = parseInt(item.dataset.idx, 10);
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+      document.querySelectorAll('.rank-item').forEach(i => {
+        i.classList.remove('drag-over-top', 'drag-over-bottom');
+      });
+      dragSrcIdx = null;
+    });
+
+    item.addEventListener('dragover', e => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const targetIdx = parseInt(item.dataset.idx, 10);
+      if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+      const rect = item.getBoundingClientRect();
+      const mid  = rect.top + rect.height / 2;
+      document.querySelectorAll('.rank-item').forEach(i => {
+        i.classList.remove('drag-over-top', 'drag-over-bottom');
+      });
+      item.classList.add(e.clientY < mid ? 'drag-over-top' : 'drag-over-bottom');
+    });
+
+    item.addEventListener('dragleave', () => {
+      item.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+
+    item.addEventListener('drop', e => {
+      e.preventDefault();
+      const targetIdx = parseInt(item.dataset.idx, 10);
+      if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+
+      const rect   = item.getBoundingClientRect();
+      const mid    = rect.top + rect.height / 2;
+      const before = e.clientY < mid;
+
+      const arr    = state.ranking;
+      const [moved] = arr.splice(dragSrcIdx, 1);
+      const insertAt = before ? targetIdx : targetIdx + 1;
+      const adjusted = (dragSrcIdx < targetIdx && !before) ? insertAt - 1 : insertAt;
+      arr.splice(adjusted < 0 ? 0 : adjusted, 0, moved);
+
+      renderRankList();
+    });
+  });
+}
+
+document.getElementById('to_export_btn').addEventListener('click', () => {
+  buildExportScreen();
+  showScreen('screen_export');
+});
+
+// ─── Export screen ────────────────────────────────────────────────────────────
+
+function buildExportScreen() {
+  const n = state.queue.length;
+  const rated = Object.keys(state.ratings).length;
+  const high  = Object.values(state.ratings).filter(v => v >= 4).length;
+  const ranked = state.ranking.length;
+
+  document.getElementById('summary_grid').innerHTML = `
+    <div class="summary-stat">
+      <div class="stat-num">${n}</div>
+      <div class="stat-label">Questions in triage</div>
+    </div>
+    <div class="summary-stat">
+      <div class="stat-num">${rated}</div>
+      <div class="stat-label">Rated</div>
+    </div>
+    <div class="summary-stat">
+      <div class="stat-num">${high}</div>
+      <div class="stat-label">Rated High or Critical (4–5)</div>
+    </div>
+    <div class="summary-stat">
+      <div class="stat-num">${ranked}</div>
+      <div class="stat-label">Questions ranked</div>
+    </div>
+  `;
+}
+
+document.getElementById('export_btn').addEventListener('click', () => {
+  const triage = Object.entries(state.ratings).map(([question_id, triage_score]) => ({
+    question_id,
+    triage_score,
+  }));
+
+  const ranking = state.ranking.map((question_id, i) => ({
+    question_id,
+    rank: i + 1,
+  }));
+
+  const output = {
+    panellist_id: state.panellistId,
+    domains: state.domains,
+    rated_at: new Date().toISOString().slice(0, 10),
+    triage,
+    ranking,
+  };
+
+  const json = JSON.stringify(output, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `ratings-${state.panellistId}-${output.rated_at}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showFlash('Ratings exported.');
+});
+
+document.getElementById('restart_btn').addEventListener('click', () => {
+  // Reset state
+  Object.assign(state, { corpus: [], queue: [], cursor: 0, ratings: {}, ranking: [], panellistId: '', domains: [] });
+  panellistInput.value = '';
+  corpusInput.value    = '';
+  uploadStatus.textContent = '';
+  uploadStatus.className   = 'upload-status';
+  document.querySelectorAll('#domain_grid input').forEach(cb => {
+    cb.checked = false;
+    cb.closest('.domain-option').classList.remove('selected');
+  });
+  document.getElementById('header_badge').classList.add('hidden');
+  startBtn.disabled = true;
+  showScreen('screen_setup');
+});
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+let flashTimer;
+function showFlash(msg, isError = false) {
+  const el = document.getElementById('flash');
+  el.textContent = msg;
+  el.style.background = isError ? '#c0392b' : '#27ae60';
+  el.classList.add('show');
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>
