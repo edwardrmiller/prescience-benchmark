@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescience Benchmark — Prototypes</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f8f6;
+      --surface: #ffffff;
+      --border: #d4d4cc;
+      --text: #1a1a18;
+      --text-muted: #6b6b66;
+      --accent: #4a6fa5;
+      --accent-hover: #3a5f95;
+      --tag-bg: #e8eef5;
+      --tag-text: #3a5f95;
+      --font: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      max-width: 60ch;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .track {
+      margin-bottom: 2.5rem;
+    }
+
+    .prototype-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      margin-bottom: 0.75rem;
+    }
+
+    .prototype-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px rgba(74,111,165,0.1);
+    }
+
+    .prototype-card:last-child { margin-bottom: 0; }
+
+    .card-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .card-body { flex: 1; }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.68rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .card-arrow {
+      color: var(--border);
+      font-size: 1.1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+
+    .prototype-card:hover .card-arrow { color: var(--accent); }
+
+    .coming-soon {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .coming-soon .card-tag {
+      background: #f0f0ee;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Prescience Benchmark</h1>
+  <p>Evaluation framework for measuring prescience — the ability to identify which questions deserve forecasting attention before that becomes obvious.</p>
+</header>
+
+<main>
+
+  <div class="track">
+    <div class="section-label">Track 1 — Expert Panel</div>
+
+    <a class="prototype-card" href="prototypes/track-1-expert-panel/submission-interface/">
+      <div class="card-num">1</div>
+      <div class="card-body">
+        <div class="card-title">Submission Interface</div>
+        <div class="card-desc">Participants upload a completed CSV of questions. Validates each row against the corpus schema and exports a structured JSON file for expert review.</div>
+        <div class="card-tag">Ready</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="prototype-card" href="prototypes/track-1-expert-panel/panel-tooling/">
+      <div class="card-num">2</div>
+      <div class="card-body">
+        <div class="card-title">Panel Tooling</div>
+        <div class="card-desc">Expert panellists triage domain-routed questions on a 5-point scale, then rank their top-rated cluster. Exports a ratings JSON for the scoring engine.</div>
+        <div class="card-tag">Ready</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="track">
+    <div class="section-label">Scoring</div>
+
+    <div class="prototype-card coming-soon">
+      <div class="card-num">3</div>
+      <div class="card-body">
+        <div class="card-title">Scoring Engine</div>
+        <div class="card-desc">Python CLI. Ingests prospective and retrospective ratings from the expert panel, computes prescience scores per question and participant leaderboard.</div>
+        <div class="card-tag">Coming soon</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="track">
+    <div class="section-label">Track 2 — Market Signals</div>
+
+    <div class="prototype-card coming-soon">
+      <div class="card-num">4</div>
+      <div class="card-body">
+        <div class="card-title">Market Signal Validator</div>
+        <div class="card-desc">Matches corpus questions against Metaculus and Manifold Markets. Extracts timing and activity signals as an external validation layer.</div>
+        <div class="card-tag">Coming soon</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://github.com/edwardrmiller/prescience-benchmark">GitHub</a> &nbsp;·&nbsp;
+  Swift Centre for Applied Forecasting
+</footer>
+
+</body>
+</html>
