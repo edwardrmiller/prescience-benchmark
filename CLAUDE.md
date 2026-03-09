@@ -164,3 +164,4 @@ Update this section after each Claude Code session with the date and what was de
 | 2026-03-09 | Rebuilt submission interface to CSV upload model per updated SPEC.md. Template download, client-side CSV parse/validate, per-row validation report, review table, JSON export. |
 | 2026-03-09 | Built panel tooling prototype (Track 1, step 2): SPEC.md + single-file index.html. Four-screen flow: setup → triage → rank → export. Domain filtering, random shuffle, auto-advance on rating, drag-and-drop ranking with ↑↓ fallback. |
 | 2026-03-09 | Created GitHub repo (edwardrmiller/prescience-benchmark). Enabled GitHub Pages from root of main. Added index.html landing page. Pages URL: https://edwardrmiller.github.io/prescience-benchmark/ |
+| 2026-03-09 | Added supporting rationale display to panel tooling triage card. Updated SPEC.md. Fixed upload zone border rendering on submission interface. Added debug sample corpus download link to panel tooling. |
