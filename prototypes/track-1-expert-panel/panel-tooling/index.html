@@ -267,6 +267,17 @@
       font-size: 1.05rem;
       font-weight: 500;
       line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .question-rationale {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-left: 3px solid var(--border);
+      border-radius: 0 4px 4px 0;
       margin-bottom: 1.5rem;
     }
 
@@ -572,6 +583,7 @@
     <div class="question-card" id="triage_card">
       <div class="question-meta" id="triage_meta"></div>
       <div class="question-text" id="triage_text"></div>
+      <div class="question-rationale hidden" id="triage_rationale"></div>
       <div class="rating-grid" id="rating_grid">
         <button class="rating-btn" data-val="1">
           <span class="r-num">1</span>
@@ -784,6 +796,14 @@ function renderTriageCard() {
     ...q.domain_tags.map(d => `<span class="tag">${escHtml(d)}</span>`),
   ].join('');
   triageText.textContent = q.question_text;
+
+  const rationaleEl = document.getElementById('triage_rationale');
+  if (q.supporting_rationale) {
+    rationaleEl.textContent = q.supporting_rationale;
+    rationaleEl.classList.remove('hidden');
+  } else {
+    rationaleEl.classList.add('hidden');
+  }
 
   // Rating buttons — mark currently chosen rating
   const current = state.ratings[q.id] ?? null;

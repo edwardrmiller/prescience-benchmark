@@ -48,6 +48,7 @@ Questions are filtered to only those whose `domain_tags` intersect with the pane
 - Selecting a rating auto-advances to the next question (no separate confirm step).
 - The panellist may navigate back to change a rating before exporting.
 - On completion of all questions, the interface advances automatically to Stage 2.
+- If a question has a `supporting_rationale`, it is displayed on the triage card below the question text.
 
 ### Stage 2 — Rank
 
@@ -111,7 +112,7 @@ A single JSON file: `ratings-{panellist_id}-YYYY-MM-DD.json`
 
 ## Out of Scope (v1)
 
-- Supporting rationale visibility toggle (OQ-9 — deferred)
+- Supporting rationale visibility toggle (OQ-9 — rationale is shown at triage; whether to show it at retrospective stage is deferred)
 - Server-side persistence or session resumption
 - Multiple panellists in the same session
 - Inter-rater agreement computation (handled by the scoring engine)
